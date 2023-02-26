@@ -1,40 +1,30 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="G:\html\calculator\StyleSheet1.css" rel="stylesheet" />
-    <meta charset="utf-8" />
-    <title>IOS Calculator</title>
-    <script src="Script1.js"></script>
+    <link rel="icon" href="G:\html\WeatherApp\Logo.png">
+    <link rel="stylesheet" href="G:\html\WeatherApp\WeatherPage.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best WeatherApp</title>
+
 </head>
 <body>
+    <form id="form">
+        <label for="location">Enter location:</label>
+        <input type="text" id="location" required>
+        <button type="submit">Get weather</button>
+      </form>
+      
+     <h2 id="city"></h2>
+      <img id="icon">
+      <p id="temperature"></p>
+      <p id="description"></p>
+      <p id="wind"></p>
+      <p id="humidity"></p>
+      <p id="pressure"></p>
+      
 
-
-    <div class="container">
-        <h1 id="zero">0</h1>
-        <button onclick="AC()"class="signs1">AC</button>
-        <button class="signs1">+/-</button>
-        <button class="signs1">%</button>
-        <button class="signs2">/</button>
-        <button onclick="seven()"class="nums">7 </button>
-        <button onclick="eight()"class="nums">8 </button>
-        <button onclick="nine()"class="nums">9 </button>
-        <button class="signs2">X </button>
-        <button onclick="four()"class="nums">4 </button>
-        <button onclick="five()"class="nums">5 </button>
-        <button onclick="six()"class="nums">6 </button>
-        <button class="signs2">- </button>
-        <button onclick="one()" class="nums">1 </button>
-        <button onclick="two()"class="nums">2 </button>
-        <button onclick="three()"class="nums">3 </button>
-        <button class="signs2">+ </button>
-        <button onclick="zero()"class="zero">0 </button>
-        <button onclick="dot" class="nums">. </button>
-        <button class="signs2">= </button>
-
-    </div>
-
-
-
+    <script src="WeatherPage.js"></script>
 </body>
 </html>
