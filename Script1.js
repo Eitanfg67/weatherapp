@@ -1,62 +1,35 @@
-summery = 0;
+const apiKey = "5e1d26f673c37721f3b1fe7f3c774fb4";
 
-function zero() {
 
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 0;
-
+function getWeather(location) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const temperature = data.main.temp;
+      const description = data.weather[0].description;
+      const icon = data.weather[0].icon;
+      const city = data.name;
+      const country = data.sys.country;
+      const wind = data.wind.speed;
+      const humidity = data.main.humidity;
+      const pressure = data.main.pressure;
+      
+      // update UI with weather data
+      document.getElementById("temperature").textContent = `${temperature} °C`;
+      document.getElementById("description").textContent = description;
+      document.getElementById("city").textContent = `${city}, ${country}`;
+      document.getElementById("wind").textContent = `${wind} m/s`;
+      document.getElementById("humidity").textContent = `${humidity} %`;
+      document.getElementById("pressure").textContent = `${pressure} hPa`;
+      document.getElementById("icon").setAttribute("src", `https://openweathermap.org/img/wn/${icon}.png`);
+    })
+    .catch(error => console.log("error"));
 }
-function one() {
 
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 1;
-
-}
-function two() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 2;
-
-}
-function three() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 3;
-
-}
-function four() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 4;
-
-}
-function five() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 5;
-
-}
-function six() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 6;
-
-}
-function seven() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 7;
-
-}
-function eight() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 8;
-
-}
-function nine() {
-
-    document.getElementById("zero").innerHTML = summery = summery * 10 + 9;
-
-}
-function AC() {
-
-    document.getElementById("zero").innerHTML = summery = 0;
-
-}
-function dot() {
-
-    document.getElementById("zero").innerHTML = summery = summery + ".";
-
-}
+// get weather data when form is submitted
+document.getElementById("form").addEventListener("submit", event => {
+  event.preventDefault();
+  const location = document.getElementById("location").value;
+  getWeather(location);
+});
